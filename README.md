@@ -1,2 +1,5 @@
-# qa-scripting
-Collection of node.js scripts that automate testing: pagespeed, load-testing, accessibilty, seo best practices, code-standards, and more.
+# puppeteer-screenshots
+
+- https://pptr.dev/
+- https://github.com/GoogleChrome/puppeteer
+    - https://github.com/GoogleChrome/puppeteer/blob/master/lib/DeviceDescriptors.js

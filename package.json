@@ -1,0 +1,21 @@
+{
+    "name": "puppeteer-screenshots",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "run": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@hint/formatter-json": "^3.0.1",
+        "chrome-launcher": "^0.10.7",
+        "filenamify": "^4.0.0",
+        "hint": "^5.0.1",
+        "lighthouse": "^5.0.0",
+        "puppeteer": "^1.15.0",
+        "shelljs": "^0.8.3"
+    }
+}
