@@ -1,4 +1,4 @@
-# qa-scriptingh
+# qa-scripting
 
 Collection of node.js scripts that automate testing: pagespeed, load-testing, accessibilty, seo best practices, code-standards, and more.
 
@@ -9,9 +9,9 @@ Collection of node.js scripts that automate testing: pagespeed, load-testing, ac
     	- https://github.com/GoogleChrome/lighthouse/blob/master/docs/readme.md#using-programmatically
     	- https://github.com/GoogleChrome/lighthouse/blob/master/docs/configuration.md
   	- [x] https://webhint.io/
-  	- [ ] sitespeed.io
+  	- [ ] https://sitespeed.io
   	- [ ] https://github.com/voxmedia/lightbike
-- Page Load
+- Load Testing
 	- [ ] https://artillery.io/
     	- https://artillery.io/docs/script-reference/
   	- [ ] https://docs.k6.io/docs/running-k6
