@@ -1,16 +1,18 @@
 {
-    "name": "puppeteer-screenshots",
-    "version": "1.0.0",
-    "description": "",
+    "name": "gauntlet",
+    "version": "0.0.1",
+    "description": "Collection of node.js scripts that automate testing: pagespeed, load-testing, accessibilty, seo best practices, code-standards, and more.",
     "main": "index.js",
     "scripts": {
-        "run": "node index.js"
+        "run": "node index.js",
+        "sitespeed.io": "sitespeed.io --headless --budget.configPath sitespeed-io-budget.json urls.txt"
     },
     "keywords": [],
     "author": "",
     "license": "MIT",
     "dependencies": {
         "@hint/formatter-json": "^3.0.1",
+        "a11y": "^0.5.1",
         "chrome-launcher": "^0.10.7",
         "filenamify": "^4.0.0",
         "hint": "^5.0.1",

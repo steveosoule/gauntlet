@@ -1,11 +1,13 @@
 // Packages
 const puppeteer = require('puppeteer');
 const filenamify = require('filenamify');
-const pages = require('./pages');
+const pages = require('./pages.js');
 
 // Helpers
-const iPhone6 = puppeteer.devices['iPhone 6'];
-const iPhoneX = puppeteer.devices['iPhone X'];
+const axeUrl = 'https://cdnjs.cloudflare.com/ajax/libs/axe-core/3.2.2/axe.min.js';
+const axeOptions = {};
+// const iPhone6 = puppeteer.devices['iPhone 6'];
+// const iPhoneX = puppeteer.devices['iPhone X'];
 async function autoScroll(page) {
     await page.evaluate(async () => {
         await new Promise((resolve, reject) => {
@@ -46,6 +48,16 @@ async function autoScroll(page) {
                 path: screenshotPath,
                 fullPage: true
             });
+
+            // Test Accessibility
+            // https://marmelab.com/blog/2018/07/18/accessibility-performance-testing-puppeteer.html
+            await page.addScriptTag({ url: axeUrl });
+            const accessibilityReport = await page.evaluate(options => {
+                return new Promise(resolve => {
+                    setTimeout(resolve, 0);
+                    }).then(() => axe.run(options));
+            }, axeOptions);
+            console.log(accessibilityReport);
 
             // Done with page
             await page.close();
