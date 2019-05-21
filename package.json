@@ -13,6 +13,7 @@
     "dependencies": {
         "@hint/formatter-json": "^3.0.1",
         "a11y": "^0.5.1",
+        "autocannon": "^3.2.2",
         "chrome-launcher": "^0.10.7",
         "filenamify": "^4.0.0",
         "hint": "^5.0.1",

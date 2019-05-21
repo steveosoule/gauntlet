@@ -2,6 +2,7 @@
 const puppeteer = require('puppeteer');
 const filenamify = require('filenamify');
 const pages = require('./pages.js');
+const { extractDataFromPerformanceTiming, logJSON } = require('./helpers');
 
 // Helpers
 const axeUrl = 'https://cdnjs.cloudflare.com/ajax/libs/axe-core/3.2.2/axe.min.js';
@@ -33,8 +34,14 @@ async function autoScroll(page) {
 
     for (const pageData of pages) {
         try {
+
             // Setup Page
             const page = await browser.newPage();
+            // Enable both JavaScript and CSS coverage
+            await Promise.all([
+                page.coverage.startJSCoverage(),
+                page.coverage.startCSSCoverage()
+            ]);
             // await page.emulate(iPhoneX);
             await page.goto(pageData.url);
 
@@ -50,14 +57,46 @@ async function autoScroll(page) {
             });
 
             // Test Accessibility
-            // https://marmelab.com/blog/2018/07/18/accessibility-performance-testing-puppeteer.html
             await page.addScriptTag({ url: axeUrl });
             const accessibilityReport = await page.evaluate(options => {
                 return new Promise(resolve => {
                     setTimeout(resolve, 0);
                     }).then(() => axe.run(options));
             }, axeOptions);
-            console.log(accessibilityReport);
+            logJSON('results/axe.json', accessibilityReport);
+
+            // Calculate Code Coverage
+            const [jsCoverage, cssCoverage] = await Promise.all([
+                page.coverage.stopJSCoverage(),
+                page.coverage.stopCSSCoverage(),
+            ]);
+            let totalBytes = 0;
+            let usedBytes = 0;
+            const coverage = [...jsCoverage, ...cssCoverage];
+            for (const entry of coverage) {
+                totalBytes += entry.text.length;
+                for (const range of entry.ranges)
+                    usedBytes += range.end - range.start - 1;
+            }
+            console.log(`Bytes used: ${usedBytes / totalBytes * 100}%`);
+
+            // Performance Timing
+            const performanceTiming = JSON.parse(
+                await page.evaluate(() => JSON.stringify(window.performance.timing))
+            );
+            const extractedPerformanceTiming = extractDataFromPerformanceTiming(
+                performanceTiming,
+                'responseEnd',
+                'domInteractive',
+                'domContentLoadedEventEnd',
+                'loadEventEnd'
+            );
+            console.log('extractedPerformanceTiming', extractedPerformanceTiming);
+
+            // Metrics
+            const metrics = await page.metrics()
+            console.log('page.metrics', metrics);
+
 
             // Done with page
             await page.close();

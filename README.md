@@ -9,11 +9,17 @@ Collection of node.js scripts that automate testing: pagespeed, load-testing, ac
     	- https://github.com/GoogleChrome/lighthouse/blob/master/docs/readme.md#using-programmatically
     	- https://github.com/GoogleChrome/lighthouse/blob/master/docs/configuration.md
   	- [x] https://webhint.io/
-  	- [ ] https://sitespeed.io
+  	- [x] https://sitespeed.io
 - Accessibility
     - [x] https://webhint.io/
     - [x] https://github.com/addyosmani/a11y
-    - [ ] https://www.npmjs.com/package/axe-core
+    - [x] https://www.npmjs.com/package/axe-core
+- Load Testing
+  - [x] Apache Bench
+  - [x] https://github.com/mcollina/autocannon
+  - [x] https://docs.k6.io/docs/running-k6
+  - ~~[ ] https://artillery.io/~~
+      - ~~https://artillery.io/docs/script-reference/~~
 - SEO
   - [ ] https://www.npmjs.com/package/yoastseo
 - Linting
@@ -25,9 +31,5 @@ Collection of node.js scripts that automate testing: pagespeed, load-testing, ac
   - [ ] https://www.cypress.io/
   - [ ] https://nightwatchjs.org/
 - Documentation
-- Load Testing
-  - [ ] https://artillery.io/
-      - https://artillery.io/docs/script-reference/
-    - [ ] https://docs.k6.io/docs/running-k6
 - Design
   - [ ] https://github.com/mapbox/pixelmatch
