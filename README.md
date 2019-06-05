@@ -14,6 +14,7 @@ Collection of node.js scripts that automate testing: pagespeed, load-testing, ac
     - [x] https://webhint.io/
     - [x] https://github.com/addyosmani/a11y
     - [x] https://www.npmjs.com/package/axe-core
+    - [ ] https://github.com/pa11y/pa11y
 - Load Testing
   - [x] Apache Bench
   - [x] https://github.com/mcollina/autocannon
@@ -27,6 +28,7 @@ Collection of node.js scripts that automate testing: pagespeed, load-testing, ac
 - Code Reivew
   - [ ] https://github.com/steveosoule/clean-code
 - Functionality
+  - [ ] https://github.com/GoogleChrome/puppeteer
   - [ ] https://www.katalon.com/
   - [ ] https://www.cypress.io/
   - [ ] https://nightwatchjs.org/
