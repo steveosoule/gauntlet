@@ -17,7 +17,7 @@
         "chrome-launcher": "^0.10.7",
         "filenamify": "^4.0.0",
         "hint": "^5.0.1",
-        "lighthouse": "^5.0.0",
+        "lighthouse": "^9.6.7",
         "puppeteer": "^1.15.0",
         "shelljs": "^0.8.3"
     }
